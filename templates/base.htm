@@ -6,10 +6,10 @@
 </head>
 <body>
     <h1>Kalkulator walut</h1>
- <form method="POST" action="/recalculate/">
+ <form method="POST" action="/">
   <div class="container">
-    <label for="from_currency"><b>Wybierz walutę:</b></label>
-    <select name="from_currency" id='from_currency'>
+    <label for="currency"><b>Wybierz walutę:</b></label>
+    <select name="currency" id='currency'>
         <option value="USD">USD</option>
         <option value="AUD">AUD</option>
         <option value="CAD">CAD</option>
@@ -28,7 +28,7 @@
     <input type="number" placeholder='Kwota'name="amount" required><br>
     <button type="submit">Przelicz</button><br><hr>
     <label for="result"><b>Kwota w PLN</b></label>
-    <input type="text" placeholder="PLN" style='background-color: wheat;' readonly>
+    <input type="text" placeholder="PLN" name='result' style='background-color: wheat;' readonly>
   </div>
 </form>
 </body>
