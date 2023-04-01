@@ -3,33 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Kalkulator Walut</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Kalkulator walut</h1>
- <form method="POST" action="/">
-  <div class="container">
+<div class="container">
+  <form method="POST" action="/">
+
     <label for="currency"><b>Wybierz walutę:</b></label>
     <select name="currency" id='currency'>
-        <option value="USD">USD</option>
-        <option value="AUD">AUD</option>
-        <option value="CAD">CAD</option>
-        <option value="EUR">EUR</option>
-        <option value="HUF">HUF</option>
-        <option value="CHF">CHF</option>
-        <option value="GBP">GBP</option>
-        <option value="JPY">JPY</option>
-        <option value="CZK">CZK</option>
-        <option value="DKK">DKK</option>
-        <option value="NOK">NOK</option>
-        <option value="SEK">SEK</option>
-        <option value="XDR">XDR</option>
+      {% for d in data %}
+      <option value="{{ d.code }}">{{ d.code }}</option>
+      {% endfor %}
     </select><br>
     <label for="amount"><b>Podaj kwotę:</b></label>
     <input type="number" placeholder='Kwota'name="amount" required><br>
     <button type="submit">Przelicz</button><br><hr>
-    <label for="result"><b>Kwota w PLN</b></label>
-    <input type="text" placeholder="PLN" name='result' style='background-color: wheat;' readonly>
-  </div>
-</form>
+
+  </form>
+    <label for="result"><b>Kwota w PLN</b></label><br>
+    <input type="text" id='result' value="{{ result }}" style='background-color: wheat; text-align: center;' readonly>
+</div>
 </body>
 </html>

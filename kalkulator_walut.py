@@ -32,12 +32,11 @@ def calculator():
         amount = request.form['amount']
         amount = float(amount)
         result = calculate(data, amount, currency)
-        return render_template('base.htm', result=result, data=data)
+        return render_template('base.htm', result=round(result, 2), data=data)
     
-    return render_template('base.htm', result=None, data=data)
+    return render_template('base.htm', data=data)
     
 
 if __name__ == '__main__':
     app.run(debug=True)
-
 
